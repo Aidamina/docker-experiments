@@ -19,7 +19,7 @@ fleetctl start kube-flanneld.service
 # Master units
 fleetctl start generate-serviceaccount-key.service
 fleetctl start kube-apiserver.service
-fleetctl start kube-controllermanager.service
+fleetctl start kube-controller-manager.service
 fleetctl start kube-scheduler.service
 
 # Worker units

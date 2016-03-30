@@ -18,7 +18,7 @@ fleetctl destroy kube-flanneld.service
 # Master units
 fleetctl destroy generate-serviceaccount-key.service
 fleetctl destroy kube-apiserver.service
-fleetctl destroy kube-controllermanager.service
+fleetctl destroy kube-controller-manager.service
 fleetctl destroy kube-scheduler.service
 
 # Worker units
