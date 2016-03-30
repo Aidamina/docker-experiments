@@ -10,14 +10,14 @@ CLUSTER_NAME=k8s-test
 USER=core
 MASTERS=1
 WORKERS=2
-TOTAL=$(($MASTERS + $WORKERS))
+TOTAL_NODES=$(($MASTERS + $WORKERS))
 SSH_PORT_START=2022
 #Version of CoreOS to use, see: https://coreos.com/os/docs/latest/booting-on-azure.html
 IMAGE="2b171e93f07c4903bcad35bda10acf22__CoreOS-Beta-991.2.0"
 
 
 echo Fetching token
-TOKEN=$(curl -s -w "\n" "https://discovery.etcd.io/new?size=$NODES")
+TOKEN=$(curl -s -w "\n" "https://discovery.etcd.io/new?size=$TOTAL_NODES")
 echo "$TOKEN" > .discovery_token
 echo "Token: $TOKEN"
 #escaping token for use with sed replace
