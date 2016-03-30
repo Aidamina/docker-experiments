@@ -2,8 +2,10 @@
 Description=Flanneld loader
 Requires=setup-network-environment.service etcd2.service flanneld.service
 
+[Service]
 ExecStart=/usr/bin/etcdctl set /coreos.com/network/config '{"Network":"10.244.0.0/16", "Backend": {"Type": "vxlan"}}'
-
+RemainAfterExit=yes
+Type=oneshot
 
 [X-Fleet]
 Global=true
