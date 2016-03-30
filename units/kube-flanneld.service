@@ -1,0 +1,6 @@
+[Unit]
+Description=Flanneld loader
+Requires=setup-network-environment.service etcd2.service
+
+[X-Fleet]
+Global=true
