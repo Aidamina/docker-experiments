@@ -1,6 +1,8 @@
 #!/bin/bash
 
 SERVICE=k8s-test
+MASTER_FQDN="http://$SERVICE.cloudapp.net"
+MASTER_FQDN=$(echo "$MASTER_FQDN"|sed -e 's/[\/&]/\\&/g')
 
 
 cd units
@@ -22,7 +24,7 @@ fleetctl start kube-scheduler.service
 
 # Worker units
 
-sed -e "s/<master-private-ip>/$SERVICE.cloudapp.net/g" kube-proxy.template.service > kube-proxy.service
-sed -e "s/<master-private-ip>/$SERVICE.cloudapp.net/g" kube-kubelet.template.service > kube-kubelet.service
+sed -e "s/<master-private-ip>/$MASTER_FQDN/g" kube-proxy.template.service > kube-proxy.service
+sed -e "s/<master-private-ip>/$MASTER_FQDN/g" kube-kubelet.template.service > kube-kubelet.service
 fleetctl start kube-proxy.service
 fleetctl start kube-kubelet.service
