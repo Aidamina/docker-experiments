@@ -1,0 +1,9 @@
+web:
+  image: aidamina/example-app:v1
+  ports:
+    - "3030:3000"
+  links:
+    - "db:redis"
+
+db:
+  image: redis

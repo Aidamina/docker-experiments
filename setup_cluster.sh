@@ -8,8 +8,11 @@ VM_SIZE="Small"
 CERT="$HOME/.ssh/id_rsa.pub"
 CLUSTER_NAME=k8s-test
 USER=core
+#Number of servers tagged master
 MASTERS=1
+#Number of servers tagged worker
 WORKERS=2
+#Total servers
 TOTAL_NODES=$(($MASTERS + $WORKERS))
 SSH_PORT_START=2022
 #Version of CoreOS to use, see: https://coreos.com/os/docs/latest/booting-on-azure.html
