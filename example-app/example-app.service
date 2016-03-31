@@ -12,3 +12,8 @@ ExecStartPre=/usr/bin/chmod +x /opt/bin/docker-compose
 ExecStart=/opt/bin/docker-compose up
 Restart=always
 RestartSec=10
+
+
+[X-Fleet]
+MachineMetadata=role=master
+Global=true
