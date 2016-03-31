@@ -1,0 +1,14 @@
+[Unit]
+Description=Example app
+Requires=docker.service network-online.target
+
+[Service]
+WorkingDirectory=/opt/example-app
+ExecStartPre=-/usr/bin/mkdir -p /opt/example-app
+ExecStartPre=/usr/bin/curl -L -o /opt/example-app/docker-compose.yml -z /opt/example-app/docker-compose.yml https://raw.githubusercontent.com/Aidamina/docker-experiments/master/example-app/docker-compose.yml
+ExecStartPre=-/usr/bin/mkdir -p /opt/bin
+ExecStartPre=/usr/bin/curl -L -o /opt/bin/docker-compose -z /opt/bin/docker-compose https://github.com/docker/compose/releases/download/1.6.2/docker-compose-`uname -s`-`uname -m`
+ExecStartPre=/usr/bin/chmod +x /opt/bin/docker-compose
+ExecStart=/opt/bin/docker-compose up
+Restart=always
+RestartSec=10
