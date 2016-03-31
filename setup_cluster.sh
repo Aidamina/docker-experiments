@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# You need to install npm
+# You need to install azure-cli:
+# npm install -g azure-cli
+# And log into the azure platform:
+# azure login
+
 #Azure settings
 REGION="West Europe"
 SERVICE=k8s-test
